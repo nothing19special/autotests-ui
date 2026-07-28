@@ -48,7 +48,7 @@ with sync_playwright() as playwright:
 
     #Проверка иконки
     course_empty_icon_check = page.get_by_test_id('courses-list-empty-view-icon')
-    expect(course_empty_results_check).to_be_visible()
+    expect(course_empty_icon_check).to_be_visible()
 
     #Проверка описания
     course_empty_description_check = page.get_by_test_id('courses-list-empty-view-description-text')
