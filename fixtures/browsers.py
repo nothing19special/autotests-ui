@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright, Page, Playwright
 #Открытие страницы. Без дополнительных параметров
 @pytest.fixture(scope='session')
 def chromium_page(playwright: Playwright) -> Page:
-    browser = playwright.chromium.launch(headless=False, slow_mo=700)
+    browser = playwright.chromium.launch(headless=False)
     yield browser.new_page()
     browser.close()
 
@@ -38,6 +38,7 @@ def initialize_browser_state(playwright: Playwright) -> None:
 
     # Сохранения состояния клиента
     context.storage_state(path='browser-state.json')
+
 
 #Создание страницы с новым контекстом
 @pytest.fixture(scope='function')
