@@ -12,7 +12,7 @@ with sync_playwright() as playwright:
 
     #Ввод никнейма
     registration_username = page.get_by_test_id('registration-form-username-input').locator('input')
-    registration_username.fill('username')
+    registration_username.fill('nickname')
 
     #Ввод пароля
     registration_password = page.get_by_test_id('registration-form-password-input').locator('input')

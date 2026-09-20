@@ -20,7 +20,7 @@ with sync_playwright() as playwright:
     #Ввод логина
     registration_username_form = page.get_by_test_id('registration-form-username-input').locator('input')
     registration_username_form.focus()
-    for char in 'username':
+    for char in 'nickname':
         page.keyboard.type(char)
 
     #Ввод пароля

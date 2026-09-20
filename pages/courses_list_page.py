@@ -40,6 +40,7 @@ class CoursesListPage(BasePage):
         expect(self.empty_view_title).to_be_visible()
         expect(self.empty_view_title).to_have_text('There is no results')
 
+
         expect(self.empty_view_description).to_be_visible()
         expect(self.empty_view_description).to_have_text(
             'Results from the load test pipeline will be displayed here'

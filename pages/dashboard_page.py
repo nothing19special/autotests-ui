@@ -11,7 +11,7 @@ class DashboardPage(BasePage):
 
         # Добавляем компоненты
         self.navbar = NavbarComponent(page)
-        self.sidebar= SidebarComponent(page)
+        self.sidebar = SidebarComponent(page)
 
         self.dashboard_title = page.get_by_test_id('dashboard-toolbar-title-text')
 
