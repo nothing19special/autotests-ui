@@ -26,7 +26,7 @@ def initialize_browser_state(playwright: Playwright) -> None:
 
     # Ввод никнейма
     registration_username_form = page.get_by_test_id('registration-form-username-input').locator('input')
-    registration_username_form.fill('username')
+    registration_username_form.fill('nickname')
 
     # Ввод пароля
     registration_password_form = page.get_by_test_id('registration-form-password-input').locator('input')
