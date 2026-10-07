@@ -3,8 +3,7 @@ import pytest
 from pages.courses_list_page import CoursesListPage
 from pages.create_course_page import CreateCoursePage
 
-from components.navigation.navbar_component import NavbarComponent
-from components.navigation.sidebar_component import SidebarComponent
+
 
 
 @pytest.mark.courses
@@ -28,7 +27,7 @@ def test_create_course(create_course_page: CreateCoursePage, courses_list_page: 
     create_course_page.check_visible_create_course_title()
     create_course_page.check_disabled_create_course_button()
     create_course_page.image_upload_widget.check_visible(is_image_uploaded=False)
-    create_course_page.check_visible_create_course_form(
+    create_course_page.create_course_form.check_visible(
         title="",
         estimated_time="",
         description="",
@@ -41,7 +40,7 @@ def test_create_course(create_course_page: CreateCoursePage, courses_list_page: 
     # Заполнение страницы курса
     create_course_page.image_upload_widget.upload_preview_image('./testdata/files/15745135259_7d4dbff3bb_o.jpg')
     create_course_page.image_upload_widget.check_visible(is_image_uploaded=True)
-    create_course_page.fill_create_course_form(
+    create_course_page.create_course_form.fill(
         title="Playwright",
         estimated_time="2 weeks",
         description="Playwright",
@@ -54,4 +53,3 @@ def test_create_course(create_course_page: CreateCoursePage, courses_list_page: 
     courses_list_page.course_view.check_visible(
         index=0, title="Playwright", max_score="100", min_score="10", estimated_time="2 weeks"
     )
-
