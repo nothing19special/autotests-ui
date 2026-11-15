@@ -1,6 +1,11 @@
+from typing import Self
+
 from playwright.sync_api import Page, expect
+
+from components import dashboard
 from components.base_component import BaseComponent
 from elements.text import Text
+from playwright_registration import dashboard_title_check
 
 
 class DashboardToolbarViewComponent(BaseComponent):
@@ -10,5 +15,5 @@ class DashboardToolbarViewComponent(BaseComponent):
         self.dashboard_title = Text(page,'dashboard-toolbar-title-text','Dashboard Toolbar Title')
 
     def check_visible(self):
-        expect(self.dashboard_title).to_be_visible()
-        expect(self.dashboard_title).to_have_text('Dashboard')
+        self.dashboard_title.check_visible()
+        self.dashboard_title.check_have_text('Dashboard')

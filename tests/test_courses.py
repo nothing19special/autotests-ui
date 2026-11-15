@@ -29,8 +29,8 @@ def test_create_course(create_course_page: CreateCoursePage, courses_list_page: 
     create_course_page.image_upload_widget.check_visible(is_image_uploaded=False)
     create_course_page.create_course_form.check_visible(
         title="",
-        estimated_time="",
         description="",
+        estimated_time="",
         max_score="0",
         min_score="0"
     )

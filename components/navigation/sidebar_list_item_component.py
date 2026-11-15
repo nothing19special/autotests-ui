@@ -16,10 +16,10 @@ class SidebarListItemComponent(BaseComponent):
         self.button = Button(page, f'{identifier}-drawer-list-item-button', 'Button')
 
     def check_visible(self, title: str):
-        expect(self.icon).to_be_visible()
-        expect(self.title).to_be_visible()
-        expect(self.title).to_have_text(title)
-        expect(self.button).to_be_visible()
+        self.icon.check_visible()
+        self.title.check_visible()
+        self.title.check_have_text(title)
+        self.button.check_visible()
 
     def navigate(self, expected_url: Pattern[str]):
         self.button.click()

@@ -3,8 +3,8 @@ from playwright.sync_api import Page, expect
 from components.base_component import BaseComponent
 from components.views.empty_view_component import EmptyViewComponent
 from elements.button import Button
+from elements.file_input import FileInput
 from elements.icon import Icon
-from elements.input import Input
 from elements.text import Text
 from elements.image import Image
 
@@ -20,26 +20,24 @@ class ImageUploadWidgetComponent(BaseComponent):
         self.image_upload_info_description = Text(page,f'{identifier}-image-upload-widget-info-description-text', 'Description')
         self.upload_button = Button(page,f'{identifier}-image-upload-widget-upload-button', 'Upload image Button')
         self.remove_button = Button(page,f'{identifier}-image-upload-widget-remove-button','Remove Image Button')
-        self.upload_input = Input(page,f'{identifier}-image-upload-widget-input', 'Upload Image Input')
+        self.upload_input = FileInput(page,f'{identifier}-image-upload-widget-input', 'Upload Image Input')
 
     # Проверяет отображение виджета в зависимости от наличия загруженного изображения
     def check_visible(self, is_image_uploaded: bool = False):
-        expect(self.image_upload_info_icon).to_be_visible()
+        self.image_upload_info_icon.check_visible()
 
-        expect(self.image_upload_info_title).to_be_visible()
-        expect(self.image_upload_info_title).to_have_text(
-            'Tap on "Upload image" button to select file'
-        )
+        self.image_upload_info_title.check_visible()
+        self.image_upload_info_title.check_have_text('Tap on "Upload image" button to select file')
 
-        expect(self.image_upload_info_description).to_be_visible()
-        expect(self.image_upload_info_description).to_have_text('Recommended file size 540X300')
+        self.image_upload_info_description.check_visible()
+        self.image_upload_info_description.check_have_text('Recommended file size 540X300')
 
-        expect(self.upload_button).to_be_visible()
+        self.upload_button.check_visible()
 
         if is_image_uploaded:
             # Если картинка загружена, проверяем состояние специфичное для загруженной картинки
-            expect(self.remove_button).to_be_visible()
-            expect(self.preview_image).to_be_visible()
+            self.remove_button.check_visible()
+            self.preview_image.check_visible()
 
         if not is_image_uploaded:
             # Если картинка не загружена, проверяем наличие компонента EmptyViewComponent

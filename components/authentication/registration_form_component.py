@@ -17,7 +17,6 @@ class RegistrationFormComponent(BaseComponent):
         self.password_input.fill(password)
 
     def check_visible(self, email: str, username: str, password: str):
-        expect(self.email_input).to_have_value(email)
-        expect(self.username_input).to_have_value(username)
-        expect(self.password_input).to_have_value(password)
-
+        self.email_input.check_have_value(email)
+        self.username_input.check_have_value(username)
+        self.password_input.check_have_value(password)
