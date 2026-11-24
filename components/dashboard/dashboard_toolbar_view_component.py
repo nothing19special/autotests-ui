@@ -1,11 +1,8 @@
-from typing import Self
 
 from playwright.sync_api import Page, expect
 
-from components import dashboard
 from components.base_component import BaseComponent
 from elements.text import Text
-from playwright_registration import dashboard_title_check
 
 
 class DashboardToolbarViewComponent(BaseComponent):
